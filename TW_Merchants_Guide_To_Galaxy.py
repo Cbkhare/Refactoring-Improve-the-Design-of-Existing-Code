@@ -466,3 +466,15 @@ if __name__=="__main__":
             if '?'in line:
                 # if the query is to get the ouput of the query
                 print (result)
+
+'''
+Test Results
+
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+
+Process finished with exit code 0
+'''
