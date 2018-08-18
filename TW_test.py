@@ -14,10 +14,10 @@ class GuildeToGalaxyTest(unittest.TestCase):
         galaxy_obj.query("glob glob Silver is 34 Credits")
 
         self.assertEqual(galaxy_obj.query("how much is pish tegj glob glob ?"),
-                          'pish tegj glob glob is 42')
+                         'pish tegj glob glob is 42')
         self.assertEqual(galaxy_obj.query("how many Credits is glob prok "
-                                           "Silver ?"),
-                          'glob prok Silver is 68')
+                                          "Silver ?"),
+                         'glob prok Silver is 68')
 
 if __name__=="__main__":
     unittest.main()
