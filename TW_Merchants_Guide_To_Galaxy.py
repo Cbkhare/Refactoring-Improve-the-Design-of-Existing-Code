@@ -319,7 +319,7 @@ class GalaxyTransactions(object):
         :return: True if successful else False
         """
         int_value = self.galaxy_to_int(galaxy_denoms)
-        if not int_value:
+        if int_value is None:
             return False
         self.galaxy_metal_obj.set_metal(metal_name, int(credit/int_value))
         return True
@@ -350,8 +350,8 @@ class GalaxyTransactions(object):
         """
         quantity = self.galaxy_to_int(galaxy_denom)
         metal_obj = self.galaxy_metal_obj.get_metal(metal_name)
-        if metal_obj is None:
-            return None # error handling if metal obj doesnot exsits
+        if metal_obj is None or quantity is None:
+            return None
         return quantity * metal_obj.metal_cost
 
 
@@ -414,7 +414,7 @@ class GalaxyQueryReader(object):
             name, roman_value = query_string.split(" is ")
             status = self.galaxy_trx_obj.create_denomination(name, roman_value)
             if not status:
-                print(self.output(False))
+                return self.output(False)
 
         elif re.search("(is [0-9]+ Credits)$", query_string):
             # Case2 Metal Value
@@ -428,14 +428,14 @@ class GalaxyQueryReader(object):
             status = self.galaxy_trx_obj.create_metal(galaxy_denoms, metal_name,
                                                       credit)
             if not status:
-                print (self.output(False))
+                return self.output(False)
 
         elif re.match("^(how much is )", query_string):
             # Case3 General Query
             # ex how much is pish tegj glob glob ?
             string = query_string.split("how much is ")[1][:-2]
             value = self.galaxy_trx_obj.galaxy_to_int(string)
-            return (self.output(value, statement=string))
+            return self.output(value, statement=string)
 
         elif re.match("^(how many Credits is)", query_string):
             # Case 4 Metal Cost Query
@@ -446,10 +446,10 @@ class GalaxyQueryReader(object):
             metal_name = string[-2]
             value = self.galaxy_trx_obj.total_metal_cost(galaxy_denom,
                                                          metal_name)
-            return (self.output(value, statement=galaxy_denom + ' ' + metal_name))
+            return self.output(value, statement=galaxy_denom + ' ' + metal_name)
         else:
             # case 5 invalid query
-            return (self.output(False))
+            return self.output(False)
 
 
 
