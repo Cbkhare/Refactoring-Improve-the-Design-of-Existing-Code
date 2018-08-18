@@ -455,10 +455,12 @@ class GalaxyQueryReader(object):
 
 if __name__=="__main__":
     # Please add the path to input file in path_to_file variable
-    path_to_file = "/Users/chitrabasu.khare/Downloads/A_Python/Git_Python/Refactoring_Improve_the_Design_of_Existing_Code"
-    with open(path_to_file +"/input_file.txt", "r+") as file:
+    path_to_file = "/root/"
+
+    with open(path_to_file + "/input_file.txt", "r+") as file:
         file_obj = file.read().split("\n")
         galaxy_query_reader = GalaxyQueryReader()
+
         for line in file_obj:
             result = galaxy_query_reader.query(line)
             if '?'in line:
