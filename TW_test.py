@@ -21,3 +21,16 @@ class GuildeToGalaxyTest(unittest.TestCase):
 
 if __name__=="__main__":
     unittest.main()
+
+
+'''
+Test Results
+
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+
+Process finished with exit code 0
+'''
