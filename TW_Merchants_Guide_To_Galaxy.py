@@ -455,7 +455,7 @@ class GalaxyQueryReader(object):
 
 if __name__=="__main__":
     # Please add the path to input file in path_to_file variable
-    path_to_file = "/root/"
+    path_to_file = "/Users/chitrabasu.khare/Downloads/A_Python/Git_Python/Refactoring_Improve_the_Design_of_Existing_Code"
 
     with open(path_to_file + "/input_file.txt", "r+") as file:
         file_obj = file.read().split("\n")
@@ -466,3 +466,50 @@ if __name__=="__main__":
             if '?'in line:
                 # if the query is to get the ouput of the query
                 print (result)
+
+"""
+Test Result
+
+Input-1
+~~~~~~~
+glob is I
+prok is V
+pish is X
+tegj is L
+glob glob Silver is 34 Credits
+glob prok Gold is 57800 Credits
+pish pish Iron is 3910 Credits
+how much is pish tegj glob glob ?
+how many Credits is glob prok Silver ?
+how many Credits is glob prok Gold ?
+how many Credits is glob prok Iron ?
+how much wood could a woodchuck chuck if a woodchuck could chuck wood ?
+
+Output-1
+~~~~~~~~
+pish tegj glob glob is 42
+glob prok Silver is 68
+glob prok Gold is 57800
+glob prok Iron is 780
+I have no idea what you are talking about
+
+Input-2
+~~~~~~~
+glob is C
+prok is V
+pish is X
+tegj is L
+glob prok Gold is 57800 Credits
+pish pish Iron is 3910 Credits
+how much is pish tegj glob glob ?
+how much is glob pish tegj ?
+how many Credits is glob prok Gold ?
+how many Credits is glob prok Iron ?
+
+Output-2
+~~~~~~~~
+pish tegj glob glob is Not a valid Roman string
+glob pish tegj is 140
+glob prok Gold is 57750
+glob prok Iron is 20475
+"""
