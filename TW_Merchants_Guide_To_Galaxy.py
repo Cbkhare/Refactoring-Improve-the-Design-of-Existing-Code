@@ -393,7 +393,7 @@ class GalaxyQueryReader(object):
 
     def output(self, output, statement = None):
         """
-        This methos is wrapper over the output of respective methods
+        This method is a wrapper over the output of respective methods
         :param output: output of the method (String/Int/Boolean/None)
         :param statement: String
         :return: String
@@ -409,10 +409,10 @@ class GalaxyQueryReader(object):
     def query(self, query_string):
         """
         This method reads the query and calls the appropriate method from the 
-        transaction class. In this class there i have usd regular expression to 
-        match the statement of the quesry and call the required method.  
+        transaction class. In this class i have used regular expressions to
+        match the statement of the query and call the required method.
         :param query_string: String 
-        :return: 
+        :return: output: String
         """
         if len(query_string.split(" "))==3:
             # Case1 Create Denomination object and assign value
@@ -461,7 +461,7 @@ class GalaxyQueryReader(object):
 
 if __name__=="__main__":
     # Please add the path to input file in path_to_file variable
-    path_to_file = "/Users/chitrabasu.khare/Downloads/A_Python/Git_Python/Refactoring_Improve_the_Design_of_Existing_Code"
+    path_to_file = "/root/"
 
     with open(path_to_file + "/input_file.txt", "r+") as file:
         file_obj = file.read().split("\n")
@@ -469,9 +469,9 @@ if __name__=="__main__":
 
         for line in file_obj:
             result = galaxy_query_reader.query(line)
-            if '?'in line:
-                # if the query is to get the ouput of the query
-                print (result)
+            if '?' in line:
+                # if the query is to get the output of the query
+                print(result)
 
 """
 Test Result
