@@ -57,7 +57,7 @@ class GalaxyMetals(object):
         """
         This method gets the object of the metal with reference to its name
         :param name: String
-        :return: metal object
+        :return: metal object if found else None
         """
         return self._metals.get(name, None)
 
@@ -254,7 +254,13 @@ class GalaxyDenominations(Roman):
 
 class GalaxyTransactions(object):
     """
-    This class does the transaction on metals and denominations. li
+    This class does the transaction on metals and denominations. It has 4 basic
+    method whose job is to
+    1) Create a Denomination object, i.e glob -> I
+    2) Create a Metal Object, i.e Iron -> Per Unit cost
+    3) Calculate Galaxy denomination to Int, i.e glob prok -> Int?.
+    4) Calculate credit for the Metal i.e glob prok Iron -> Int?.
+    Method 3 & 4 returns None if any denomination does not exist.
     """
     _galaxy_metal_obj = ''
     _galaxy_denom_obj = ''
